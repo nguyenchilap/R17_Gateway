@@ -1,0 +1,38 @@
+html{
+    font-size: 14px;
+}
+
+.separate{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid rgb(165, 165, 165);    
+}
+
+.modal{
+    animation: fadeIn ease-in 0.4s;
+}
+
+.modal .modal-content{
+    top: 20vh;
+}
+
+.noti-warning{
+    font-size: 12px;
+    font-style: italic;
+    color: #c92929;
+}
+
+.noti-success{
+    font-size: 12px;
+    font-style: italic;
+    color: #42df12;
+}
+
+@keyframes fadeIn {
+    from{
+        opacity: 0.2;
+    }
+    to{
+        opacity: 1;
+    }
+}

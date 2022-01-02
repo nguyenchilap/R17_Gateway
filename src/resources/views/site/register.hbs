@@ -1,0 +1,381 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-modal-noti d-none" data-bs-toggle="modal" data-bs-target="#modalNoti">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade modal-noti" id="modalNoti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="register-container" class="container">
+    <div class="register-wrapper">
+        <form class="register-form" method="POST" action="/register">
+            <div class="register-form__account">
+                <div class="register-title d-flex justify-content-between">
+                    <h3>Create Account</h3>
+                    <a href="/login" class="btn btn-outline-dark btn-switch">Sign in</a>
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label">Username</label>
+                <div class="col">
+                    <input type="text" name="username" class="form-control" placeholder="Your login name...">
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label">Password</label>
+                <div class="col">
+                    <input type="password" name="password" class="form-control" placeholder="Your password...">
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label w-100">Confirm password</label>
+                <div class="col">
+                    <input type="password" name="confirm-password" class="form-control" placeholder="Confirm your password...">
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label w-100">Email</label>
+                <div class="col">
+                    <input type="email" name="email" class="form-control" placeholder="Your email...">
+                </div>
+
+                <select class="mt-5 form-select user-type" aria-label="Default select example">
+                    <option selected>Type of Account</option>
+                    <option value="1">Buyer</option>
+                    <option value="2">Seller</option>
+                    <option value="3">Shipper</option>
+                </select>
+
+                <div class="btn btn-success mt-4 btn-step btn-next-1 float-end">NEXT</div>
+            </div>
+
+            <div class="register-form__info" style="display: none;">
+                <div class="register-title d-flex justify-content-between">
+                    <h3>Your Infomation</h3>
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label">Full Name</label>
+                <div class="col">
+                    <input type="text" name="full-name" class="form-control" placeholder="Your full name...">
+                </div>
+               
+                <label class="mt-2 col-sm-2 col-form-label">Gender</label>
+                <select class="form-select user-gender" aria-label="Default select example">
+                    <option value="1" selected>Male</option>
+                    <option value="2">Female</option>
+                    <option value="3">Others</option>
+                </select>
+
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                      <label class="mt-2 col-form-label">Day</label>
+                        <input type="text" name="day" class="form-control" placeholder="DD">
+                    </div>
+                    
+                    <div class="col-4">
+                        <label class="mt-2 col-form-label w-100">Month</label>
+                        <input type="text" name="month" class="form-control" placeholder="MM">
+                    </div>
+
+                    <div class="col-4">
+                        <label class="mt-2 col-form-label w-100">Year</label>
+                        <input type="text" name="year" class="form-control" placeholder="YYYY">
+                    </div>
+                </div>
+
+                <label class="mt-2 col-form-label w-100">Address</label>
+                <div class="row">
+                    <div class="col-6">
+                      <select class="form-select user-province">
+                          <option selected>Province</option>
+                      </select>
+                    </div>
+
+                    <div class="col-6">
+                      <select class="form-select user-district">
+                          <option selected>District</option>
+                      </select>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-4">
+                        <select class="form-select user-ward">
+                            <option selected>Ward</option>
+                        </select>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" name="address" class="form-control" placeholder="Address details...">
+                    </div>
+                </div>
+
+                <label class="mt-2 col-sm-2 col-form-label">Full Name</label>
+                <div class="col">
+                    <input type="number" name="phone" class="form-control" placeholder="Your phone number...">
+                </div>
+
+                <div>
+                  <div class="btn btn-success mt-4 btn-step btn-prev-2 float-start">PREVIOUS</div>
+                  <div class="btn btn-success mt-4 btn-step btn-next-2 float-end">NEXT</div>
+                </div>
+            </div>
+
+            <div class="register-form__avatar" style="display: none;">
+                <div class="register-title text-center">
+                    <h3>Avatar</h3>
+                </div>
+                <input type="file" name="img" accept="image/png, image/gif, image/jpeg" style="display: none;">
+                
+                <div class="avatar-wrapper">
+                  <div class="avatar-input" style="background-image: url('/img/camera.png');">
+                  </div>
+                  <div class="avatar-default" style="background-image: url('/img/default-avatar.jpg');">
+                  </div>
+                </div>
+
+                <div>
+                  <div class="btn btn-success mt-4 btn-step btn-prev-3 float-start">PREVIOUS</div>
+                  <div class="btn btn-success mt-4 btn-step btn-next-3 float-end">SKIP AND DONE</div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-modal-otp d-none" data-bs-toggle="modal" data-bs-target="#modalOtp">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade modal-otp" id="modalOtp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Validate Email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+            <h2 class="">OTP</h2>
+            <div class="col d-flex align-items-center justify-content-center">
+                <input type="number" name="otp" class="mt-2 mb-2">
+                <i class="fas fa-sync-alt btn-re-send-otp"></i>
+            </div>
+            <div class="noti-warning mb-2 noti-watning-otp" style="display: none;">Unmatched !! Try again or Re-send OTP</div>
+            <div class="noti-success mb-2 noti-sent-otp" style="display: none;">OTP sent !</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-close-modal-otp" data-bs-dismiss="modal">Close</button>
+        <div class="btn btn-primary btn-confirm-otp">Submit</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script>
+
+    $(document).ready(function(){
+        const inputUserName = $('input[name="username"]');
+        const inputPassword = $('input[name="password"]');
+        const inputConfirmPassword = $('input[name="confirm-password"]');
+        const inputEmail = $('input[name="email"]');
+        const inputUserType = $('.user-type');
+        const inputFullName = $('input[name="full-name"]');
+        const inputDay = $('input[name="day"]');
+        const inputMonth = $('input[name="month"]');
+        const inputYear = $('input[name="year"]');
+        const inputPhone = $('input[name="phone"]');
+        const inputAddress = $('input[name="address"]');
+
+        const inputGender = $('.user-gender');
+        const inputProvince = $('.user-province');
+        const inputDistrict = $('.user-district');
+        const inputWard = $('.user-ward');
+
+
+        const btnNext1 = $('.btn-next-1');
+        const btnNext2 = $('.btn-next-2');
+        const btnNext3 = $('.btn-next-3');
+        const btnPrev2 = $('.btn-prev-2');
+        const btnPrev3 = $('.btn-prev-3');
+
+        const btnOtp = $('.btn-modal-otp');
+        const btnNoti = $('.btn-modal-noti');
+
+        const modalNoti = $('.modal-noti');
+        const modalOtp = $('.modal-otp');
+
+        //LOAD VIETNAM CITY DATA
+        class loadAddress {
+          constructor(dataInput){
+              this.data = dataInput;
+          }
+
+          loadProvincesName(){
+            return this.data.map(item => item.name);
+          }
+
+          loadDistrictsName(provinceName){
+            return this.data.find(item => item.name === provinceName).districts.map(item => item.name);
+          }
+
+          loadWardsName(provinceName, districtName){
+            return this.data.find(item => item.name === provinceName).districts.find(item => item.name === districtName).wards.map(item => item.name);            
+          }
+
+        }
+        
+        $.getJSON('/vietnam-address.json',function(data){
+            const address = new loadAddress(data);
+            const provinceNames = address.loadProvincesName();
+
+            //load all name provinces
+            provinceNames.forEach(name => {
+              inputProvince.append(`<option>${name}</option>`);
+            });
+
+            //load name districts
+            inputProvince.change(function(){
+              inputDistrict.html('');
+              if (this.value === 'Province') inputDistrict.html('');
+              else {
+                address.loadDistrictsName(this.value).forEach(name => {
+                  inputDistrict.append(`<option>${name}</option>`);
+                });
+              }
+            });
+
+            inputDistrict.change(function(){
+              inputWard.html('');
+              if (this.value === 'District') inputWard.html('');
+              else {
+                address.loadWardsName(inputProvince.val(), this.value).forEach(name => {
+                  inputWard.append(`<option>${name}</option>`);
+                })
+              }
+            })
+        });
+
+        //FIRST STEP
+        btnNext1.click(function(){
+            if (!inputUserName.val() || !inputPassword.val() || !inputConfirmPassword.val() || !inputEmail.val() || !inputUserType.find(':selected').attr('value')){
+                modalNoti.find('.modal-title').html('Blank not accepted');
+                modalNoti.find('.modal-body').html('Please fill all input fields !!!!');
+                btnNoti.click();
+            }
+            else if (inputConfirmPassword.val() != inputPassword.val()){
+                modalNoti.find('.modal-title').html('Unmatched password');
+                modalNoti.find('.modal-body').html('Confirm your password again !!!!');
+                btnNoti.click();
+            }
+            else if (!inputEmail.val().includes('@')){
+                modalNoti.find('.modal-title').html('Invalid Email');
+                modalNoti.find('.modal-body').html('Check your email again !!!!');
+                btnNoti.click();
+            }
+            else{
+                btnOtp.click();
+
+                $('.btn-re-send-otp').click(function(){
+                    $('.noti-sent-otp').css('display', 'block');
+                    $('.noti-warning-otp').css('display', 'none');
+                })
+
+                $.post('/register/send-otp', {
+                    email : inputEmail.val()
+                }, function(res){
+                    $('.btn-confirm-otp').click(function(){
+                        if (res.otp != $('input[name="otp"]').val()){
+                          $('.noti-warning-otp').css('display', 'block');
+                          $('.noti-sent-otp').css('display', 'none');
+                        }
+                        else{
+                          $('.btn-close-modal-otp').click();
+                          $('.register-form__info').css('display','block');
+                          $('.register-form__account').css('display','none');
+                        }
+                    })
+                })
+            }
+          });
+
+        //SECOND STEP
+        btnPrev2.click(function(){
+            $('.register-form__info').css('display','none');
+            $('.register-form__account').css('display','block');
+        });
+        
+        btnNext2.click(function(){
+            if (!inputFullName.val() || !inputDay.val() || !inputMonth.val() || !inputYear.val() || !inputPhone.val() || !inputProvince.val() ||
+                inputProvince.val() === 'Province' || !inputDistrict.val() || !inputDistrict.val() === 'District' || !inputWard.val() || 
+                !inputWard.val() === 'Ward' || !inputAddress.val()){
+                modalNoti.find('.modal-title').html('Blank not accepted');
+                modalNoti.find('.modal-body').html('Please fill all input fields !!!!');
+                btnNoti.click();
+            }
+            else {
+                $('.register-form__info').css('display','none');
+                $('.register-form__avatar').css('display','block');
+            }
+        })
+
+        //THIRD STEP
+        btnPrev3.click(function(){
+            $('.register-form__avatar').css('display','none');
+            $('.register-form__info').css('display','block');
+        });
+
+        $('.avatar-input').click(function(){
+            $('input[name="img"]').click();
+        });
+
+        btnNext3.click(function(){
+          const url = `https://localhost:44366/api/account/register/${inputUserType.find(':selected').attr('value')}`;
+          fetch(url, {
+              method: 'POST',
+              body: JSON.stringify({
+                  UserName : inputFullName.val(),
+                  UserBirth : new Date(`${inputMonth.val()}/${inputDay.val()}/${inputYear.val()}`).toISOString(),
+                  UserGender : Number(inputGender.val()),
+                  UserPhone : inputPhone.val(),
+                  UserEmail : inputEmail.val(),
+                  UserAddress : `${inputAddress.val()}, ${inputWard.val()}, ${inputDistrict.val()}, ${inputProvince.val()}`,
+                  UserArea : 0,
+                  UserLoginName : inputUserName.val(),
+                  UserPassword: inputPassword.val()
+              }),
+              headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+              },
+          })
+          .then(res => {return res.json})
+          .then(userId => {
+              alert('Register successfully !!!');
+              window.location.href = '/login';
+          })
+          .catch(exc => {
+              modalNoti.find('.modal-title').html('Register failed');
+              modalNoti.find('.modal-body').html('Error : ' + exc);
+              btnNoti.click();
+          })
+        })
+        
+    })
+
+</script>

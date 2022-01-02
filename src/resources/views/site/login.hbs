@@ -1,0 +1,89 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-modal-noti d-none" data-bs-toggle="modal" data-bs-target="#modalNoti">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade modal-noti" id="modalNoti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="login-container" class="container">
+    <div class="login-wrapper">
+        <div class="login-title d-flex justify-content-between">
+            <h3>SIGN IN</h3>
+            <a href="/register" class="btn btn-outline-dark btn-switch">Sign up</a>
+        </div>
+        <form class="login-form" method="POST" action="/login">
+
+            <label class="col-sm-2 col-form-label">Username</label>
+            <div class="col">
+                <input type="text" name="username" class="form-control" placeholder="Your username.." required>
+            </div>
+
+            <label class="col-sm-2 col-form-label">Password</label>
+            <div class="col">
+                <input type="password" name="password" class="form-control" placeholder="Your password.." required>
+            </div>
+
+            <a class="btn-forgot-password">Forgot your password?</a>
+
+            <button class="btn btn-success mt-4 btn-login-form btn-submit-login">SUBMIT</button>
+            <div class="separate btn-login-separate"></div>
+            <button class="btn mt-4 btn-login-form btn-submit-login-google">
+                <i class="fab fa-google-plus-g"></i>
+                Login with google
+            </button>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    $('.btn-submit-login').click(function(e){
+        e.preventDefault();
+        const url = "https://localhost:44366/api/account/login";
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                username: $('input[name="username"').val(),
+                password: $('input[name="password"').val(),
+            }),
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(res => { return res.json();})
+        .then(userInfo => {
+            $.post('/login', {
+                username: userInfo.userName,
+                password: userInfo.userPassword,
+                userInfo
+            }, function(res){
+                if (res.user){
+                    window.location.href = res.redirect;
+                }
+                else{
+                    $('.modal-noti .modal-body').html('Incorrect username or password !!!');
+                    $('.btn-modal-noti').click();
+                }
+            })
+        })
+        .catch((e) => alert('Connect failed !! Exception: ' + e));
+    })
+</script>

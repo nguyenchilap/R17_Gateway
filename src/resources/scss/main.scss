@@ -1,0 +1,114 @@
+@import 'base';
+
+//LOGIN
+
+#register-container,
+#login-container{
+    display: flex;
+    justify-content: center;
+}
+
+.register-wrapper,
+.login-wrapper {
+    width: 40%;
+    padding: 32px 40px 40px;
+    background-color: #f2f2f1;
+    box-shadow: 1px 4px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 7px;
+}
+
+.login-wrapper {
+    margin: 12vh auto;
+}
+
+.btn-login-form{
+    width: 100%;
+    padding: 8px 0;
+    font-weight: bolder;
+}
+
+.btn-forgot-password{
+    cursor: pointer;
+    float: right;
+    display: block;
+    margin-top: 8px;
+}
+
+.btn-login-separate{
+    padding: 0 0 20px;
+}
+
+.btn-submit-login-google{
+    color: rgb(255, 255, 255);
+    background-color: #e72611;
+}
+
+
+//REGISTER FORM
+
+.register-wrapper{
+    padding: 32px 40px 24px;
+    margin: 8vh auto;
+}
+
+.btn-next-1{
+    padding: 8px 20px;
+}
+
+input[name="otp"]{
+    padding: 8px; 
+    text-align: center;
+}
+
+.re-send-otp{
+    font-size: 22px;
+    margin: 0 -25px 0 12px;
+    cursor: pointer;
+}
+
+.re-send-otp:hover{
+    transform: rotate(90deg);
+    transition: ease-in 0.5s;
+}
+
+.btn-step{
+    min-width: 104px;
+}
+
+.register-wrapper .avatar-wrapper{
+    margin-top: 12px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.register-wrapper .avatar-default{
+    width: 70%;
+    height: 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 8px;
+}
+
+.register-wrapper .avatar-input{
+    display: none;
+    width: 100%;
+    height: 160px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    top: 20%;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.avatar-wrapper:hover .avatar-input{
+    display: block;
+}
+
+.avatar-wrapper:hover .avatar-default{
+    filter: brightness(0.3);
+    transition: ease 0.5s;
+}
