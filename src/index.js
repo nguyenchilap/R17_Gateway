@@ -11,15 +11,12 @@ const passport = require('./config/passport');
 const app = express();
 const port = 3000;
 
+//for parsing application/x-www-form-urlencoded
 app.use(
   express.urlencoded({
       extended: true,
   }),
 );
-
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
 
 //Add static folder
 app.use(express.static(path.join(__dirname, 'public')));

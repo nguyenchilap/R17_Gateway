@@ -21,6 +21,11 @@ class SiteController {
         res.render('site/register');
     }
     
+    //[POST] /register/upload-avatar
+    uploadAvatar(req, res, next){
+        res.redirect('/');
+    }
+
     //[POST] /register/send-otp
     sendOtp(req, res, next){
         const otp = Math.floor(Math.random() * (9999 - 1000 + 1) + 1000);
