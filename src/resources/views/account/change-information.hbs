@@ -1,0 +1,147 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-modal-noti d-none" data-bs-toggle="modal" data-bs-target="#modalNoti">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade modal-noti" id="modalNoti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="button" class="btn btn-primary btn-confirm-modal-noti">Tiếp tục</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="" class="container mt-5">
+    <div class="edit-info-wrapper row">
+        <div class="row">
+            <div class="edit-info-title d-flex justify-content-between">
+                  <h3>THÔNG TIN CÁ NHÂN</h3>
+            </div>
+        </div>
+        <div class="col-4">
+            <label class="mt-2 col-sm-2 col-form-label">Họ Tên</label>
+            <div class="col">
+                <input type="text" name="full-name" class="form-control" value="{{user.userName}}">
+            </div>
+
+            <label class="mt-2 col-sm-2 col-form-label w-100">Email</label>
+            <div class="col">
+                <input type="email" name="email" class="form-control" value="{{user.userEmail}}">
+            </div>
+
+            <label class="mt-2 col-sm-2 col-form-label">Giới tính</label>
+            <select class="form-select user-gender" aria-label="Default select example">
+                <option value="1" selected>Nam</option>
+                <option value="2">Nữ</option>
+                <option value="3">Khác</option>
+            </select>
+
+            <label class="mt-2 col-sm-5 col-form-label">Số điện thoại</label>
+            <div class="col">
+                <input type="number" name="phone" class="form-control" value="{{user.userPhone}}">
+            </div>
+        </div>
+        <div class="col-4 d-flex flex-column">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                  <label class="mt-2 col-form-label">Ngày</label>
+                    <input type="text" name="day" class="form-control" value="{{userBirth.day}}">
+                </div>
+                
+                <div class="col-4">
+                    <label class="mt-2 col-form-label w-100">Tháng</label>
+                    <input type="text" name="month" class="form-control" value="{{userBirth.month}}">
+                </div>
+
+                <div class="col-4">
+                    <label class="mt-2 col-form-label w-100">Năm</label>
+                    <input type="text" name="year" class="form-control" value="{{userBirth.year}}">
+                </div>
+            </div>
+            <label class="mt-2 col-form-label w-100">Địa chỉ</label>
+            <div class="row">
+                <div class="col-6">
+                  <select class="form-select user-province">
+                      <option selected>Tỉnh</option>
+                  </select>
+                </div>
+
+                <div class="col-6">
+                  <select class="form-select user-district">
+                      <option selected>Quận/Huyện/Thành phố</option>
+                  </select>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-4">
+                    <select class="form-select user-ward">
+                        <option selected>Xã/Phường/Thị trấn</option>
+                    </select>
+                </div>
+                <div class="col-8">
+                    <input type="text" name="address" class="form-control" value="{{user.userAddress}}">
+                </div>
+            </div>
+
+            <div class="col-12 btn btn-primary btn-success btn-edit-infor mt-auto">XÁC NHẬN ĐỔI THÔNG TIN</div>
+        </div>
+        <form method="POST" action="" enctype="multipart/form-data" class="col-4 edit-avatar d-flex flex-column">
+            <input type="text" name="url" style="display: none;">
+            <input type="file" name="img" accept="image/png, image/gif, image/jpeg" style="display: none;">
+            
+            <div class="avatar-wrapper ms-auto me-auto">
+              <div class="avatar-input" style="background-image: url('/img/camera.png');">
+              </div>
+              <div class="avatar-default" style="background-image: url('{{user.userImg}}');">
+              </div>
+            </div>
+
+            <div class="col-12 btn btn-primary btn-success btn-edit-ava mt-auto disabled">ĐỔI ẢNH ĐẠI DIỆN</div>
+        </form>
+    </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-modal-otp d-none" data-bs-toggle="modal" data-bs-target="#modalOtp">
+</button>
+
+<!-- Modal -->
+<div class="modal fade modal-otp" id="modalOtp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Validate Email</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+            <h2 class="">OTP</h2>
+            <div class="col d-flex align-items-center justify-content-center">
+                <input type="number" name="otp" class="mt-2 mb-2">
+                <i class="fas fa-sync-alt btn-re-send-otp"></i>
+            </div>
+            <div class="noti-warning mb-2 noti-warning-otp" style="display: none;">Unmatched !! Try again or Re-send OTP</div>
+            <div class="noti-success mb-2 noti-sent-otp" style="display: none;">OTP sent !</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-close-modal-otp" data-bs-dismiss="modal">Close</button>
+        <div class="btn btn-primary btn-confirm-otp">Submit</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="user-identify" userId="{{user.userId}}" username="{{user.userUserName}}" style="display: none;"></div>
+
+<script src="/js/edit-info.js"></script>

@@ -15,8 +15,7 @@
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
       </div>
     </div>
   </div>
@@ -27,88 +26,88 @@
         <form class="register-form" method="POST" action="/register">
             <div class="register-form__account">
                 <div class="register-title d-flex justify-content-between">
-                    <h3>Create Account</h3>
-                    <a href="/login" class="btn btn-outline-dark btn-switch">Sign in</a>
+                    <h3>THÔNG TIN TÀI KHOẢN</h3>
+                    <a href="/login" class="btn btn-outline-dark btn-switch">ĐĂNG NHẬP</a>
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label">Username</label>
+                <label class="mt-2 col-sm-4 col-form-label">Tên đăng nhập</label>
                 <div class="col">
-                    <input type="text" name="username" minlength="5" maxlength="16" class="form-control" placeholder="Your login name (5-16 letters)...">
-                    <div class="mt-1 noti-warning noti-length-username" style="display: none;">Unexpected username length !!!</div>
-                    <div class="mt-1 noti-warning noti-exist-username" style="display: none;">Username already exists !!!</div>
+                    <input type="text" name="username" minlength="5" maxlength="16" class="form-control" placeholder="Nhập tên đăng nhập (5-16 kí tự)...">
+                    <div class="mt-1 noti-warning noti-length-username" style="display: none;">Độ dài không đúng !!!</div>
+                    <div class="mt-1 noti-warning noti-exist-username" style="display: none;">Tên đăng nhập đã tồn tại !!!</div>
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label">Password</label>
+                <label class="mt-2 col-sm-2 col-form-label">Mật khẩu</label>
                 <div class="col">
-                    <input type="password" name="password" minlength="5" maxlength="16" class="form-control" placeholder="Your password...">
-                    <div class="mt-1 noti-warning noti-length-password" style="display: none;">Unexpected passsord length !!!</div>
+                    <input type="password" name="password" minlength="5" maxlength="16" class="form-control" placeholder="Nhập mật khẩu...">
+                    <div class="mt-1 noti-warning noti-length-password" style="display: none;">Độ dài không đúng !!!</div>
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label w-100">Confirm password</label>
+                <label class="mt-2 col-sm-2 col-form-label w-100">Xác nhận mật khẩu</label>
                 <div class="col">
-                    <input type="password" name="confirm-password" class="form-control" placeholder="Confirm your password...">
+                    <input type="password" name="confirm-password" class="form-control" placeholder="Nhập lại mật khẩu...">
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label w-100">Email</label>
+                <label class="mt-2 col-sm-2 col-form-label w-100">Tài khoản Email</label>
                 <div class="col">
-                    <input type="email" name="email" class="form-control" placeholder="Your email...">
+                    <input type="email" name="email" class="form-control" placeholder="Nhập tài khoản email...">
                 </div>
 
                 <select class="mt-5 form-select user-type" aria-label="Default select example">
-                    <option selected>Type of Account</option>
-                    <option value="1">Buyer</option>
-                    <option value="2">Seller</option>
-                    <option value="3">Shipper</option>
+                    <option selected>Loại tài khoản</option>
+                    <option value="1">Người mua</option>
+                    <option value="2">Người bán</option>
+                    <option value="3">Người giao hàng</option>
                 </select>
 
-                <div class="btn btn-success mt-4 btn-step btn-next-1 float-end">NEXT</div>
+                <div class="btn btn-success mt-4 btn-step btn-next-1 float-end">Tiếp tục</div>
             </div>
 
-            <div class="register-form__info" style="display: none;">
+            <div class="register-form__info" style="display: none">
                 <div class="register-title d-flex justify-content-between">
-                    <h3>Your Infomation</h3>
+                    <h3>THÔNG TIN CÁ NHÂN</h3>
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label">Full Name</label>
+                <label class="mt-2 col-sm-2 col-form-label">Tên đầy đủ</label>
                 <div class="col">
-                    <input type="text" name="full-name" class="form-control" placeholder="Your full name...">
+                    <input type="text" name="full-name" class="form-control" placeholder="Nhập họ tên...">
                 </div>
                
-                <label class="mt-2 col-sm-2 col-form-label">Gender</label>
+                <label class="mt-2 col-sm-2 col-form-label">Giới tính</label>
                 <select class="form-select user-gender" aria-label="Default select example">
-                    <option value="1" selected>Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Others</option>
+                    <option value="1" selected>Nam</option>
+                    <option value="2">Nữ</option>
+                    <option value="3">Khác</option>
                 </select>
 
                 <div class="row justify-content-between">
                     <div class="col-4">
-                      <label class="mt-2 col-form-label">Day</label>
+                      <label class="mt-2 col-form-label">Ngày</label>
                         <input type="text" name="day" class="form-control" placeholder="DD">
                     </div>
                     
                     <div class="col-4">
-                        <label class="mt-2 col-form-label w-100">Month</label>
+                        <label class="mt-2 col-form-label w-100">Tháng</label>
                         <input type="text" name="month" class="form-control" placeholder="MM">
                     </div>
 
                     <div class="col-4">
-                        <label class="mt-2 col-form-label w-100">Year</label>
+                        <label class="mt-2 col-form-label w-100">Năm</label>
                         <input type="text" name="year" class="form-control" placeholder="YYYY">
                     </div>
                 </div>
 
-                <label class="mt-2 col-form-label w-100">Address</label>
+                <label class="mt-2 col-form-label w-100">Địa chỉ</label>
                 <div class="row">
                     <div class="col-6">
                       <select class="form-select user-province">
-                          <option selected>Province</option>
+                          <option selected>Tỉnh</option>
                       </select>
                     </div>
 
                     <div class="col-6">
                       <select class="form-select user-district">
-                          <option selected>District</option>
+                          <option selected>Quận/Huyện/Thành phố</option>
                       </select>
                     </div>
                 </div>
@@ -116,28 +115,28 @@
                 <div class="row mt-4">
                     <div class="col-4">
                         <select class="form-select user-ward">
-                            <option selected>Ward</option>
+                            <option selected>Xã/Phường/Thị trấn</option>
                         </select>
                     </div>
                     <div class="col-8">
-                        <input type="text" name="address" class="form-control" placeholder="Address details...">
+                        <input type="text" name="address" class="form-control" placeholder="Địa chỉ chi tiết...">
                     </div>
                 </div>
 
-                <label class="mt-2 col-sm-2 col-form-label">Full Name</label>
+                <label class="mt-2 col-sm-2 col-form-label">Số điện thoại</label>
                 <div class="col">
-                    <input type="number" name="phone" class="form-control" placeholder="Your phone number...">
+                    <input type="number" name="phone" class="form-control" placeholder="Nhập số điện thoại...">
                 </div>
 
                 <div>
-                  <div class="btn btn-success mt-4 btn-step btn-prev-2 float-start">PREVIOUS</div>
-                  <div class="btn btn-success mt-4 btn-step btn-next-2 float-end">NEXT</div>
+                  <div class="btn btn-success mt-4 btn-step btn-prev-2 float-start">QUAY LẠI</div>
+                  <div class="btn btn-success mt-4 btn-step btn-next-2 float-end">TIẾP TỤC</div>
                 </div>
             </div>
         </form>
         <form method="POST" action="/register/upload-avatar" enctype="multipart/form-data" class="register-form__avatar" style="display: none;">
             <div class="register-title text-center">
-                <h3>Avatar</h3>
+                <h3>Ảnh đại diện</h3>
             </div>
             <input type="text" name="url" style="display: none;">
             <input type="file" name="img" accept="image/png, image/gif, image/jpeg" style="display: none;">
@@ -150,8 +149,8 @@
             </div>
 
             <div>
-              <div class="btn btn-success mt-4 btn-step btn-prev-3 float-start">PREVIOUS</div>
-              <div class="btn btn-success mt-4 btn-step btn-next-3 float-end">SKIP AND DONE</div>
+              <div class="btn btn-success mt-4 btn-step btn-prev-3 float-start">QUAY LẠI</div>
+              <div class="btn btn-success mt-4 btn-step btn-next-3 float-end">BỎ QUA VÀ HOÀN TẤT</div>
             </div>
         </form>
     </div>
@@ -159,7 +158,6 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-modal-otp d-none" data-bs-toggle="modal" data-bs-target="#modalOtp">
-  Launch demo modal
 </button>
 
 <!-- Modal -->
@@ -167,21 +165,21 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Validate Email</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Xác nhận Email</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center">
             <h2 class="">OTP</h2>
             <div class="col d-flex align-items-center justify-content-center">
-                <input type="number" name="otp" class="mt-2 mb-2">
+                <input type="number" name="otp" class="mt-2 mb-2 me-4">
                 <i class="fas fa-sync-alt btn-re-send-otp"></i>
             </div>
-            <div class="noti-warning mb-2 noti-warning-otp" style="display: none;">Unmatched !! Try again or Re-send OTP</div>
-            <div class="noti-success mb-2 noti-sent-otp" style="display: none;">OTP sent !</div>
+            <div class="noti-warning mb-2 noti-warning-otp" style="display: none;">OTP không khớp !!!</div>
+            <div class="noti-success mb-2 noti-sent-otp" style="display: none;">Đã gửi OTP !! Kiểm tra email của bạn</div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-close-modal-otp" data-bs-dismiss="modal">Close</button>
-        <div class="btn btn-primary btn-confirm-otp">Submit</div>
+        <button type="button" class="btn btn-secondary btn-close-modal-otp" data-bs-dismiss="modal">Đóng</button>
+        <div class="btn btn-primary btn-confirm-otp">Xác nhận</div>
       </div>
     </div>
   </div>
@@ -190,6 +188,4 @@
 
 
 
-<script src="/js/registry.js">
-
-</script>
+<script src="/js/registry.js"></script>

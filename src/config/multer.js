@@ -6,7 +6,6 @@ module.exports = {
         multer({
             storage: multer.diskStorage({
                 destination: (req, file, callback) => {
-                    console.log(req.body.url);
                     const path = `src/public${req.body.url}`;
                     fs.ensureDirSync(path);
                     callback(null, path);

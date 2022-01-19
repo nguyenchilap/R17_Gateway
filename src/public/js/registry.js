@@ -28,26 +28,33 @@ $(document).ready(function(){
     const btnNoti = $('.btn-modal-noti');
 
     const modalNoti = $('.modal-noti');
-    const modalOtp = $('.modal-otp');
 
+    class modalHandler {
+      showModalNoti = (notiTitle ,notiMessage) => {
+          $('.modal-noti').find('.modal-title').html(notiTitle);
+          $('.modal-noti').find('.modal-body').html(notiMessage);
+          $('.btn-modal-noti').click();
+      }
+    };
+    
     //LOAD VIETNAM CITY DATA
     class loadAddress {
       constructor(dataInput){
           this.data = dataInput;
       }
-
+    
       loadProvincesName(){
         return this.data.map(item => item.name);
       }
-
+    
       loadDistrictsName(provinceName){
         return this.data.find(item => item.name === provinceName).districts.map(item => item.name);
       }
-
+    
       loadWardsName(provinceName, districtName){
         return this.data.find(item => item.name === provinceName).districts.find(item => item.name === districtName).wards.map(item => item.name);            
       }
-
+    
     }
     
     $.getJSON('/vietnam-address.json',function(data){
@@ -62,7 +69,7 @@ $(document).ready(function(){
         //load name districts
         inputProvince.change(function(){
           inputDistrict.html('');
-          if (this.value === 'Province') inputDistrict.html('');
+          if (this.value === 'Tỉnh') inputDistrict.html('');
           else {
             address.loadDistrictsName(this.value).forEach(name => {
               inputDistrict.append(`<option>${name}</option>`);
@@ -72,7 +79,7 @@ $(document).ready(function(){
 
         inputDistrict.change(function(){
           inputWard.html('');
-          if (this.value === 'District') inputWard.html('');
+          if (this.value === 'Quận/Huyện/Thành phố') inputWard.html('');
           else {
             address.loadWardsName(inputProvince.val(), this.value).forEach(name => {
               inputWard.append(`<option>${name}</option>`);
@@ -118,22 +125,17 @@ $(document).ready(function(){
     })
 
     
+    const modalHandle = new modalHandler();
     //FIRST STEP
     btnNext1.click(function(){
         if (!inputUserName.val() || !inputPassword.val() || !inputConfirmPassword.val() || !inputEmail.val() || !inputUserType.find(':selected').attr('value')){
-            modalNoti.find('.modal-title').html('Blank not accepted');
-            modalNoti.find('.modal-body').html('Please fill all input fields !!!!');
-            btnNoti.click();
+            modalHandle.showModalNoti('THÔNG TIN KHÔNG HỢP LỆ', 'Vui lòng điền đầy đủ thông tin !!!!');
         }
         else if (inputConfirmPassword.val() != inputPassword.val()){
-            modalNoti.find('.modal-title').html('Unmatched password');
-            modalNoti.find('.modal-body').html('Confirm your password again !!!!');
-            btnNoti.click();
+            modalHandle.showModalNoti('THÔNG TIN KHÔNG HỢP LỆ', 'Xác nhận mật khẩu không khớp !!!!');
         }
         else if (!inputEmail.val().includes('@')){
-            modalNoti.find('.modal-title').html('Invalid Email');
-            modalNoti.find('.modal-body').html('Check your email again !!!!');
-            btnNoti.click();
+            modalHandle.showModalNoti('THÔNG TIN KHÔNG HỢP LỆ', 'Địa chỉ Email không hợp lệ !!!!');
         }
         else{
             btnOtp.click();
@@ -170,9 +172,7 @@ $(document).ready(function(){
         if (!inputFullName.val() || !inputDay.val() || !inputMonth.val() || !inputYear.val() || !inputPhone.val() || !inputProvince.val() ||
             inputProvince.val() === 'Province' || !inputDistrict.val() || !inputDistrict.val() === 'District' || !inputWard.val() || 
             !inputWard.val() === 'Ward' || !inputAddress.val()){
-            modalNoti.find('.modal-title').html('Blank not accepted');
-            modalNoti.find('.modal-body').html('Please fill all input fields !!!!');
-            btnNoti.click();
+            modalHandler.showModalNoti('THÔNG TIN KHÔNG HỢP LỆ', 'Vui lòng điền đầy đủ thông tin !!!!');
         }
         else {
             $('.register-form__info').css('display','none');

@@ -53,7 +53,7 @@ class SiteController {
                 if (err) next(err);
                 else res.json({
                     user: req.body.userInfo,
-                    redirect: '/',
+                    redirect: '/me/account/change-information',
                     notiMessage: 'Login accessed!!!'
                 })
             })
