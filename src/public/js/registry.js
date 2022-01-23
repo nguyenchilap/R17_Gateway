@@ -121,7 +121,7 @@ $(document).ready(function(){
             }
             else $('.noti-exist-username').css('display','none');
         })
-        .catch(() => console.log('fail to fetch!!!'))
+        .catch((e) => console.log('fail to fetch!!! Error:' + e))
     })
 
     

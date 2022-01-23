@@ -23,6 +23,7 @@ $(document).ready(function(){
         })
         .then(res => res.json())
         .then(user => {
+            console.log(user);
             $('input[name="full-name"]').val(user.userName);
             $('input[name="email"]').val(user.useremail);
             $('input[name="phone"]').val(user.userPhone);
@@ -33,6 +34,8 @@ $(document).ready(function(){
             inputDay.val(d.getDate());
             inputMonth.val(d.getMonth() + 1);
             inputYear.val(d.getFullYear());
+
+            $('.avatar-default').css('background-image', `url('${user.userImg}')`);
         })
         .catch(e => alert('Kết nối thất bại !!! Lỗi :' + e));
     }
@@ -154,6 +157,26 @@ $(document).ready(function(){
     })
 
     //EDIT AVATAR
+    changeAvatar = () => {
+        const url = `http://localhost:8080/api/v1/userinfo/${userId}/change-avatar`;
+        return fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({
+                img: `/img/user-avatars/${$('#user-identify').attr('username')}/${$('input[name="img"]').val().split(`\\`).pop()}`,
+            }),
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(res => res.json())
+        .then(user => {
+            return user
+        })
+        .catch(e => alert('Kết nối thất bại !!! Lỗi :' + e));
+    }
+
+    //SHOW IMAGE
     $('.avatar-input').click(function(){
         inputImage.click();
     });
@@ -167,10 +190,10 @@ $(document).ready(function(){
         const modal = new modalHandler();
         modal.showModalNoti('XÁC NHẬN ĐỔI ẢNH ĐẠI DIỆN', 'Tiếp tục đổi ảnh đại diện ?');
         $('.btn-confirm-modal-noti').click(async function(){
-            const checkChangeInfor = await changeInformation();
-            if (checkChangeInfor) {
-                modal.showModalNoti('CHỈNH SỬA THÔNG TIN','Chỉnh sửa thông tin thành công !!!');
-                window.location.reload();
+            const checkChangeAvatar = await changeAvatar();
+            if (checkChangeAvatar) {
+                $('input[name="url"]').val(`/img/user-avatars/${$('#user-identify').attr('username')}`);
+                $('.edit-avatar').submit();
             }
             else modal.showModalNoti('CHỈNH SỬA THÔNG TIN','Chỉnh sửa thông tin thất bại !!');
         });

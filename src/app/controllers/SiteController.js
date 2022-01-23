@@ -20,6 +20,11 @@ class SiteController {
     showRegister(req, res, next){
         res.render('site/register');
     }
+
+    //[GET] /forget-password
+    showForgetPassword(req, res, next){
+        res.render('site/forget-password');
+    }
     
     //[POST] /register/upload-avatar
     uploadAvatar(req, res, next){

@@ -7,10 +7,12 @@ const {uploadAvatar} = require('../config/multer');
 //define route
 router.post('/register/upload-avatar', uploadAvatar.single('img'), siteController.uploadAvatar);
 router.post('/register/send-otp', siteController.sendOtp);
+router.post('/forget-password/send-otp', siteController.sendOtp);
 
 router.post('/register', siteController.register);
 router.post('/login', siteController.login);
 
+router.get('/forget-password', siteController.showForgetPassword);
 router.get('/register', siteController.showRegister);
 router.get('/login', siteController.showLogin);
 

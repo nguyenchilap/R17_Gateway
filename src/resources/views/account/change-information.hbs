@@ -97,7 +97,7 @@
 
             <div class="col-12 btn btn-primary btn-success btn-edit-infor mt-auto">XÁC NHẬN ĐỔI THÔNG TIN</div>
         </div>
-        <form method="POST" action="" enctype="multipart/form-data" class="col-4 edit-avatar d-flex flex-column">
+        <form method="POST" action="/me/account/change-avatar" enctype="multipart/form-data" class="col-4 edit-avatar d-flex flex-column">
             <input type="text" name="url" style="display: none;">
             <input type="file" name="img" accept="image/png, image/gif, image/jpeg" style="display: none;">
             
@@ -142,6 +142,6 @@
   </div>
 </div>
 
-<div id="user-identify" userId="{{user.userId}}" username="{{user.userUserName}}" style="display: none;"></div>
+<div id="user-identify" userId="{{user.userId}}" username="{{user.userLoginName}}" style="display: none;"></div>
 
 <script src="/js/edit-info.js"></script>
